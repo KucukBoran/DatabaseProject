@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="submit.css" />
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+h3 {
+  text-align: left;
+  color: white;
+  font-size: 50px !important;
+  margin-bottom: 1%;
+  margin-right: 50%;
+  margin-top: 10%;
+}
+
+p {
+  text-align: left;
+  color: white;
+  font-size: 20px;
+  margin-top: 0%;
+  margin-bottom: 28%;
+  margin-right: 20%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+  overflow:auto;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.forms-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 50%;
+  transition: 1s 0.7s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 100%;
+}
+
+.input-field {
+  max-width: 400%;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin-bottom: 1%;
+  height: 55%;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field{
+  margin-right: 10%;
+  
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 40%;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1rem;
+  margin-bottom: 15%;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #333;
+  margin-right: 10%;
+  
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+  
+}
+
+.social-text {
+  padding: 0.7rem 0;
+  font-size: 1rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 30%;
+  background-color: white;
+  border: none;
+  outline: none;
+  height: 4%;
+  border-radius: 49px;
+  color: black ;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: center;
+  padding: 2% 1%;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-right: 50%;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #4481eb;
+}
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.image {
+  width: 100%;
+  transition: transform 1.1s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.left-panel {
+  pointer-events: all;
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  pointer-events: none;
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+  color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+.btn.solid{
+  margin-top: 10%;
+}
+
+
+.right-panel .image,
+.right-panel .content {
+  transform: translateX(800px);
+}
+
+
+
+.container.sign-up-mode:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content {
+  transform: translateX(-800px);
+}
+
+.container.sign-up-mode .signin-signup {
+  left: 25%;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  z-index: 2;
+}
+
+.container.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content {
+  transform: translateX(0%);
+}
+
+.container.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+@media (max-width: 870px) {
+  .container {
+    min-height: 800px;
+    height: 100vh;
+  }
+  .signin-signup {
+    width: 100%;
+    top: 95%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .signin-signup,
+  .container.sign-up-mode .signin-signup {
+    left: 50%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .right-panel {
+    grid-row: 3 / 4;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .image {
+    width: 200px;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.6s;
+  }
+
+  .panel .content {
+    padding-right: 15%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+  }
+
+  .panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  
+
+  .container:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .container.sign-up-mode:before {
+    transform: translate(-50%, 100%);
+    bottom: 32%;
+    right: initial;
+  }
+
+  .container.sign-up-mode .left-panel .image,
+  .container.sign-up-mode .left-panel .content {
+    transform: translateY(-300px);
+  }
+
+  .container.sign-up-mode .right-panel .image,
+  .container.sign-up-mode .right-panel .content {
+    transform: translateY(0px);
+  }
+
+  .right-panel .image,
+  .right-panel .content {
+    transform: translateY(300px);
+  }
+
+  .container.sign-up-mode .signin-signup {
+    top: 5%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+  }
+
+  .image {
+    display: none;
+  }
+  .panel .content {
+    padding: 0.5rem 1rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container:before {
+    bottom: 72%;
+    left: 50%;
+  }
+
+  .container.sign-up-mode:before {
+    bottom: 28%;
+    left: 50%;
+  }
+}
+
+.btn-round {
+  width: 15%; 
+  height: 130%; 
+  background-color: #3498db; 
+  border: none;
+  outline: none;
+  border-radius: 5px; 
+  color: #fff; 
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.btn-round:hover {
+  background-color: #2980b9; 
+  color: #fff;
+}
+
+.input-field .co-supervisor-field::before {
+  content: '*';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: green; 
+}
+
+.custom-icon {
+  margin-top: 8px;
+  margin-left: 20px;
+  opacity: 0.5; 
+}
+    </style>
+    <title>Submit Thesis</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="php.php" method="post" class="sign-in-form" id="submitForm">
+            
+            <div class="input-field">
+              <ion-icon  class="custom-icon"style="margin-top: 8px;" name="document-attach-outline"></ion-icon>
+                 <input type="text" id="thesis_no" name="thesis_no" placeholder="Thesis Number *" required/>
+              </div>
+  
+              <div class="input-field">
+                <ion-icon  class="custom-icon"style="margin-top: 8px;"name="document"></ion-icon>
+                 <input type="text" id="thesis_title" name="thesis_title" placeholder="Thesis Title *" required/>
+              </div>
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="text-outline"></ion-icon>
+                 <input type="text" id="thesis_abstract" name="thesis_abstract" placeholder="Thesis Abstract *" required/>
+              </div>
+  
+              <div class="input-field">
+                <ion-icon  class="custom-icon"style="margin-top: 8px;"name="calendar-number-outline"></ion-icon>
+               <input type="text" id="thesis_year" name="thesis_year" placeholder="Year *" required/>
+              </div>
+  
+            
+              <div class="input-field">
+             <ion-icon  class="custom-icon"class="custom-icon"style="margin-top: 8px;"name="person-circle"></ion-icon>
+                <input type="text" id="author_name" name="author_name" placeholder="Author Name *" required/>
+              </div>
+  
+              <div class="input-field">
+            <ion-icon class="custom-icon" style="margin-top: 8px;"name="person-circle-outline"></ion-icon>
+                 <input type="text" id="author_surname" name="author_surname" placeholder="Author Surname *" required/>
+              </div>
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="mail-outline"></ion-icon>
+                 <input type="text" id="author_email" name="author_email" placeholder="Author Email *" required/>
+              </div>
+  
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="school"></ion-icon>
+                <input type="text" id="university_name" name="university_name" placeholder="University Name *" required/>
+              </div>
+  
+  
+              <div class="input-field">
+               <ion-icon class="custom-icon"="margin-top: 8px;" name="school-outline"></ion-icon>
+                <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name *" required/>
+              </div>
+              
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="list-outline"></ion-icon>
+                <input type="text" id="number_of_pages" name="number_of_pages" placeholder="Number of Pages * " required/>
+              </div>
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="language"></ion-icon>
+                <input type="text" id="language_name" name="language_name" placeholder="Language *" required/>
+              </div>
+      
+  
+              
+             
+  
+              
+              <div class="input-field">
+               <ion-icon class="custom-icon" style="margin-top: 8px;"name="calendar-number"></ion-icon>
+                <input type="date" id="submission_date" name="submission_date" placeholder="Submission Date *" required/>
+              </div>
+  
+              
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="person-circle"></ion-icon>
+                <input type="text" id="supervisor_name" name="supervisor_name" placeholder="Supervisor Name *" required/>
+              </div>
+  
+  
+              
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="person-circle-outline"></ion-icon>
+                 <input type="text" id="supervisor_lastname" name="supervisor_lastname" placeholder="Supervisor Surname *"required/>
+              </div>
+  
+              
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="person-circle"></ion-icon>
+                <input type="text" id="cosupervisor_name" name="cosupervisor_name" placeholder="Co-Supervisor Name" />
+              </div>
+  
+              
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;"name="person-circle-outline"></ion-icon>
+                <input type="text" id="cosupervisor_lastname" name="cosupervisor_lastname" placeholder="Co-Supervisor Surname" />
+              </div>
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon"style="margin-top: 8px;" name="key-sharp"></ion-icon>
+                <input type="text" id="keyword" name="keyword" placeholder="Keywords " />
+              </div>
+  
+              <div class="input-field">
+                <ion-icon class="custom-icon" style="margin-top: 8px;" name="library-outline"></ion-icon>
+                <input type="text" id="topics" name="topics" placeholder="Topics *" required/>
+              </div>
+
+
+            <label for="thesis_type">Thesis Type:</label>
+            <select id="thesis_type" name="thesis_type" required>
+              <option value="Master">Master</option>
+              <option value="Doctorate">Doctorate</option>
+              <option value="Specialization in Medicine">Specialization in Medicine</option>
+              <option value="Proficiency in Art">Proficiency in Art</option>
+            </select>
+            <form action="#" class="submit-form">
+              <button type="submit" class="btn-round">submit</button>
+          </form>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content" style="margin-top: -20%">
+            <h3>Submit Thesis </h3>
+            <p><b>
+              We extend a warm invitation for you to actively participate in our academic community by submitting the theses and articles of your choice. Take a moment to complete the mandatory fields below, ensuring the accuracy of the information provided. Your valuable contributions play a crucial role in enriching our collective knowledge. We express our heartfelt gratitude in advance for your dedication and contribution to our academic endeavors.
+            </p></b>
+            
+            
+          </div>
+            <a href="search.html" class="btn solid" style="margin-top: -77%">Search Thesis</a>
+            <a href="editbase.php" class="btn solid" style="margin-top: -50%">Edit Parent Tables in Thesis</a>
+         
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            var form = document.getElementById('submitForm');
+
+            // Form submit olduğunda
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+
+                // Ajax kullanarak php.php'yi çağır
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', form.action, true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                
+                // FormData ile form verilerini al
+                var formData = new FormData(form);
+
+                // Ajax isteğini gönder
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // Başarılı cevap
+                        var response = xhr.responseText.trim(); 
+
+                        // PHP tarafından gelen yanıtı kontrol et
+                        if (response === 'Success') {
+                            // Başarı durumu
+                            alert('Form Submitted Successfully!');
+                        } else if (response === 'Failed') {
+                            
+                            alert('Database Error!');
+                        } 
+		          else if (response === 'Database Connection Error') {
+                            
+                            alert('Database Connection Error!');
+                        }
+
+			    else if (response === 'Invalid Institute Name') {
+                            
+                            alert('Invalid Institute Name, Please Type Institute Name Correctly!');
+                        } 
+			    else if (response === 'Invalid University Name') {
+                            
+                            alert('Invalid University Name, Please Type University Name Correctly!');
+                        } 
+			    
+			    else if (response === 'Invalid Language Name') {
+                            
+                            alert('Invalid Language Name, Please Type Language Name Correctly!');
+                        } 
+			    else if (response === 'Invalid Topic Name') {
+                           
+                            alert('Invalid Topic Name, Please Type Topic Name Correctly!');
+                        } 
+  			    else {
+                            
+                            console.error('An unknown error occurred.', response);
+                            alert('An unknown error occurred.');
+                        }
+                    } else {
+                        
+                        console.error('Bir hata oluştu.');
+                        alert('Form gönderilirken bir hata oluştu.');
+                    }
+                };
+
+                
+                xhr.send(new URLSearchParams(formData));
+            });
+        });
+    </script>
+</body>
+</html>
